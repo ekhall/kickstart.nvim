@@ -200,6 +200,9 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
 -- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 
+-- Mojo Run Command
+vim.keymap.set('n', '<F5>', ':!mojo <C-R>=expand("%")<CR><CR>', { desc = 'Run Mojo program' })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -868,11 +871,15 @@ require('lazy').setup({
     },
   },
 
+  -- Extra themes (EKH)
+  { 'AbdelrahmanDwedar/awesome-nvim-colorschemes' },
+
   { -- You can easily change to a different colorscheme.
     -- Change the name of the colorscheme plugin below, and then
     -- change the command in the config to whatever the name of that colorscheme is.
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
+
     'folke/tokyonight.nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     config = function()
@@ -886,8 +893,15 @@ require('lazy').setup({
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'tokyonight-night'
+      -- vim.cmd.colorscheme 'unokai'
+      vim.cmd.colorscheme 'onedark'
     end,
+  },
+
+  -- Smooth Scrolling (EKH)
+  {
+    'karb94/neoscroll.nvim',
+    opts = {},
   },
 
   -- Highlight todo, notes, etc in comments
